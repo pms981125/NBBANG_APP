@@ -51,4 +51,8 @@ interface ApiService {
     fun getRoom(): Call<RoomResponse>
 
     data class RoomResponse(val id: Long, val info: String, val show: Boolean, val title: String, val leader: Long, val code:String)
+
+    @GET("/api/rooms")
+    fun getRooms(): Call<List<RoomResponse>>
+
 }
