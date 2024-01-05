@@ -40,7 +40,7 @@ class RoomViewModel: ViewModel() {
     private fun updateList() {
         val userId = 1
 
-        ApiClient.apiService.getRoom().enqueue(object: Callback<ApiService.RoomResponse>{
+        /*ApiClient.apiService.getRoom().enqueue(object: Callback<ApiService.RoomResponse>{ 구현 필요
             override fun onResponse(call: Call<ApiService.RoomResponse>, response: Response<ApiService.RoomResponse>) {
                 if (response.isSuccessful) {
                     response.body()?.let { response.body()?.title?.let { it1 -> Item1(it1, it.info) } }
@@ -54,10 +54,10 @@ class RoomViewModel: ViewModel() {
                 t.printStackTrace()
                 println("%%%%%%%%%%%%%%%")
             }
-        })
+        })*/
 
-        /*for (i in 1..3) {
+        for (i in 1..3) {
             addItem(Item1(i.toString(), i.toString()))
-        }*/
+        }
     }
 }

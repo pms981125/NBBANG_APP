@@ -30,5 +30,16 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CreateRoomActivity::class.java)
             startActivity(intent)
         }
+
+        binding.buttonInvite.setOnClickListener {
+            val dialog = CustomDialog(this)
+            dialog.setOnClickListener(object: CustomDialog.ButtonClickListener {
+                override fun onClicked(code: String) {
+                    println("%%%"+code+"%%%")// 구현 후 삭제
+                    // 코드 함수 수행
+                }
+            })
+            dialog.myDig()
+        }
     }
 }
