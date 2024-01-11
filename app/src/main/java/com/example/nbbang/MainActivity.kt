@@ -41,5 +41,10 @@ class MainActivity : AppCompatActivity() {
             })
             dialog.myDig()
         }
+
+        binding.buttonSearch.setOnClickListener {
+            val intent = Intent(this, SearchPartyActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

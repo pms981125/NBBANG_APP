@@ -1,23 +1,14 @@
 package com.example.nbbang
 
-import android.content.Intent
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-
-data class Item1(val title: String, val contents: String)
-class RoomViewModel: ViewModel() {
+class SearchViewModel: ViewModel() {
     val itemsListData = MutableLiveData<ArrayList<Item1>>()
     val items = ArrayList<Item1>()
-    //val ip
 
     val itemClickEvent = MutableLiveData<Int>()
     var itemLongClick = -1
-
     init {
         updateList()
     }
@@ -38,9 +29,10 @@ class RoomViewModel: ViewModel() {
     }
 
     private fun updateList() {
+        // 공개방만 띄우기
         val userId = 1
 
-        /*ApiClient.apiService.getRoom().enqueue(object: Callback<ApiService.RoomResponse>{ //구현 필요
+        /*ApiClient.apiService.getRoom().enqueue(object: Callback<ApiService.RoomResponse>{ 구현 필요
             override fun onResponse(call: Call<ApiService.RoomResponse>, response: Response<ApiService.RoomResponse>) {
                 if (response.isSuccessful) {
                     response.body()?.let { response.body()?.title?.let { it1 -> Item1(it1, it.info) } }
