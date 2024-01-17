@@ -46,6 +46,9 @@
         <activity
             android:name=".SearchPartyActivity"
             android:exported="true"/>
+        <activity
+            android:name=".RoomActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
