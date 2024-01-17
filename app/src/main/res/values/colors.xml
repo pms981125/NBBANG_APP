@@ -11,4 +11,5 @@
     <color name="bg_dark">#FF343A40</color>
     <color name="gray">#FF777777</color>
     <color name="lightgray">#FFAAAAAA</color>
+    <color name="lightred">#FFFF5555</color>
 </resources>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/nbbangImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nbbang" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nbbangImageView"
+        app:srcCompat="@android:drawable/bottom_bar"
+        app:tint="@color/theme" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <TextView
+            android:id="@+id/textViewPublic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/theme"
+            android:textSize="16sp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/textViewInviteCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:textAlignment="center"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/room_layout_rounded_corner_rectangle">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/room_layout_rounded_corner_rectangle">
+
+            <TextView
+                android:id="@+id/textViewInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/buttonParticipate"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:text="파티 참여하기"
+            android:textColor="@color/white"
+            android:background="@drawable/button_rounded_corner_rectangle"/>
+
+        <Button
+            android:id="@+id/buttonWithdrawal"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:text="파티 탈퇴하기"
+            android:textColor="@color/white"
+            android:background="@drawable/button_rounded_corner_rectangle"
+            android:backgroundTint="@color/lightred"/>
+
+        <Button
+            android:id="@+id/buttonModification"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:text="파티 수정하기"
+            android:textColor="@color/white"
+            android:background="@drawable/button_rounded_corner_rectangle"
+            android:backgroundTint="@color/lightgray"/>
+
+        <Button
+            android:id="@+id/buttonParticipationPeople"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:text="참여 인원보기"
+            android:textColor="@color/white"
+            android:background="@drawable/button_rounded_corner_rectangle"
+            android:backgroundTint="@color/bg_dark"/>
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="N빵 목록"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/buttonMakeNBBANG"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:text="N빵 만들기"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_rounded_corner_rectangle"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewNBBANG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttonBulletinBoard"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:text="한마디 게시판"
+            android:textColor="@color/white"
+            android:background="@drawable/button_rounded_corner_rectangle"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="12dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/nbbangImageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:srcCompat="@android:drawable/bottom_bar"
+        app:tint="@color/theme" />
+
+    <ImageView
+        android:id="@+id/nbbangImageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:srcCompat="@drawable/nbbang"
+        android:rotation="180" />
+</androidx.constraintlayout.widget.ConstraintLayout>
