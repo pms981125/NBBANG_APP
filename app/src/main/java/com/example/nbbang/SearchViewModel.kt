@@ -49,7 +49,7 @@ class SearchViewModel: ViewModel() {
         })*/
 
         for (i in 1..3) {
-            addItem(Item1(i.toString(), i.toString()))
+            addItem(Item1(i.toString(), i.toString(), true))
         }
     }
 }

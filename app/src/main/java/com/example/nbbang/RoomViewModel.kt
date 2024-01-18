@@ -9,7 +9,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-data class Item1(val title: String, val contents: String)
+data class Item1(val title: String, val contents: String, val public: Boolean)
 class RoomViewModel: ViewModel() {
     val itemsListData = MutableLiveData<ArrayList<Item1>>()
     val items = ArrayList<Item1>()
@@ -57,7 +57,7 @@ class RoomViewModel: ViewModel() {
         })*/
 
         for (i in 1..3) {
-            addItem(Item1(i.toString(), i.toString()))
+            addItem(Item1(i.toString(), i.toString(), true))
         }
     }
 }

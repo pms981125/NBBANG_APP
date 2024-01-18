@@ -33,8 +33,10 @@ class MainActivity : AppCompatActivity() {
             // 예: 클릭된 아이템의 내용을 로그에 출력
             //Log.d("RoomAdapter", "Item clicked at position $clickedPosition")
             val intent = Intent(this, RoomActivity::class.java)
+            //id만 보내는 것으로 구현
             intent.putExtra("title", viewModel.items[clickedPosition].title)
             intent.putExtra("contents", viewModel.items[clickedPosition].contents)
+            intent.putExtra("public", viewModel.items[clickedPosition].public)
             startActivity(intent)
         })
 
