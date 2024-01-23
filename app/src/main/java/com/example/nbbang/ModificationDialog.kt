@@ -4,28 +4,29 @@ import android.app.Dialog
 import android.content.Context
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 
-class NBBANGDialog(context: Context) {
+class ModificationDialog(context: Context) {
     private val dialog = Dialog(context)
 
     fun myDig() {
-        dialog.setContentView(R.layout.dialog_nbbang)
+        dialog.setContentView(R.layout.dialog_modification)
 
         dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
         dialog.setCanceledOnTouchOutside(true)
         dialog.setCancelable(true)
 
-        val buttonCreate = dialog.findViewById<Button>(R.id.buttonCreate)
+        val buttonComplete = dialog.findViewById<Button>(R.id.buttonComplete)
         val buttonCancel = dialog.findViewById<ImageView>(R.id.imageView4)
 
-        buttonCreate.setOnClickListener {
-            val period = dialog.findViewById<EditText>(R.id.editTextPeriod).text.toString()
-            val money = dialog.findViewById<EditText>(R.id.editTextMoney).text.toString()
-            val explanation = dialog.findViewById<EditText>(R.id.editTextExplanation).text.toString()
+        buttonComplete.setOnClickListener {
+            val title = dialog.findViewById<EditText>(R.id.editTextTitle).text.toString()
+            val info = dialog.findViewById<EditText>(R.id.editTextInfo).text.toString()
+            val public = dialog.findViewById<CheckBox>(R.id.checkBoxIsPublic).isChecked
 
-            onClickListener.onClicked(period, money, explanation)
+            onClickListener.onClicked(title, info, public)
 
             dialog.dismiss()
         }
@@ -38,7 +39,7 @@ class NBBANGDialog(context: Context) {
     }
 
     interface ButtonClickListener {
-        fun onClicked(period: String, money: String, explanation: String)
+        fun onClicked(title: String, info: String, public: Boolean)
     }
 
     private lateinit var onClickListener: ButtonClickListener

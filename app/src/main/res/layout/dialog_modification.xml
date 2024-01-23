@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="N빵 만들기"
+        android:text="방 정보 수정"
         android:textSize="26sp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,17 +52,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
-            android:text="주기"
+            android:text="제목"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/editTextPeriod"
+            android:id="@+id/editTextTitle"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginStart="10dp"
@@ -73,30 +73,10 @@
             android:inputType="text"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:text="금액"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/editTextMoney"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/room_layout_rounded_corner_rectangle_thin_line"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/textViewInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -106,7 +86,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/editTextExplanation"
+            android:id="@+id/editTextInfo"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginStart="10dp"
@@ -117,18 +97,35 @@
             android:inputType="text"
             android:textSize="18sp" />
 
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:text="공개"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+
+        <CheckBox
+            android:id="@+id/checkBoxIsPublic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:buttonTint="@color/theme" />
+
         <Button
-            android:id="@+id/buttonCreate"
-            android:layout_width="70dp"
+            android:id="@+id/buttonComplete"
+            android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/room_layout_rounded_corner_rectangle_thin_line"
-            android:text="생성"
+            android:text="수정 완료"
             android:textColor="@color/theme"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <TextView

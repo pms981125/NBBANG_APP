@@ -1,6 +1,7 @@
 package com.example.nbbang
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nbbang.databinding.ActivityRoomBinding
@@ -28,10 +29,14 @@ class RoomActivity:AppCompatActivity() {
 
         binding.textViewTitle.text = intentTitle
         binding.textViewInfo.text = intentContents
-        if (intentPublic)
+        if (intentPublic) {
             binding.textViewPublic.text = "이 방은 공개 방입니다"
-        else
+            binding.textViewPublic.setTextColor(resources.getColor(R.color.theme))
+        }
+        else {
             binding.textViewPublic.text = "이 방은 비공개 방입니다"
+            binding.textViewPublic.setTextColor(resources.getColor(R.color.lightred))
+        }
         binding.textViewInviteCode.text = generateRandomString(20)
 
         binding.buttonParticipate.setOnClickListener {
@@ -43,7 +48,22 @@ class RoomActivity:AppCompatActivity() {
         }
 
         binding.buttonModification.setOnClickListener {
-            //파티 수정 구현
+            val dialog = ModificationDialog(this)
+            dialog.setOnClickListener(object : ModificationDialog.ButtonClickListener {
+                override fun onClicked(title: String, info: String, public: Boolean) {
+                    binding.textViewTitle.text = title
+                    binding.textViewInfo.text = info
+                    if (public) {
+                        binding.textViewPublic.text = "이 방은 공개 방입니다"
+                        binding.textViewPublic.setTextColor(resources.getColor(R.color.theme))
+                    }
+                    else {
+                        binding.textViewPublic.text = "이 방은 비공개 방입니다"
+                        binding.textViewPublic.setTextColor(resources.getColor(R.color.lightred))
+                    }
+                }
+            })
+            dialog.myDig()
         }
 
         binding.buttonParticipationPeople.setOnClickListener {
@@ -51,7 +71,16 @@ class RoomActivity:AppCompatActivity() {
         }
 
         binding.buttonMakeNBBANG.setOnClickListener {
-
+            val dialog = NBBANGDialog(this)
+            dialog.setOnClickListener(object : NBBANGDialog.ButtonClickListener{
+                override fun onClicked(period: String, money: String, explanation: String) {
+                    println("%%%" + period + "%%%" + money + "%%%" + explanation + "%%%")// 구현 후 삭제
+                    // 코드 함수 수행
+                    val newItem = NBBANGItem(period, money, explanation)
+                    NBBANGAdapter
+                }
+            })
+            dialog.myDig()
         }
 
         binding.buttonBulletinBoard.setOnClickListener {
