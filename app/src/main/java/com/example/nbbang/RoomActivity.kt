@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nbbang.databinding.ActivityRoomBinding
 import kotlin.random.Random
 
@@ -70,6 +71,13 @@ class RoomActivity:AppCompatActivity() {
             //파티 인원 확인 구현
         }
 
+        val adapter = NBBANGAdapter(this)
+        val recycler = binding.recyclerViewNBBANG
+        recycler.adapter = adapter
+        recycler.layoutManager = LinearLayoutManager(this)
+        recycler.setHasFixedSize(false)
+        registerForContextMenu(recycler)
+
         binding.buttonMakeNBBANG.setOnClickListener {
             val dialog = NBBANGDialog(this)
             dialog.setOnClickListener(object : NBBANGDialog.ButtonClickListener{
@@ -77,7 +85,8 @@ class RoomActivity:AppCompatActivity() {
                     println("%%%" + period + "%%%" + money + "%%%" + explanation + "%%%")// 구현 후 삭제
                     // 코드 함수 수행
                     val newItem = NBBANGItem(period, money, explanation)
-                    NBBANGAdapter
+
+                    adapter.addItem(newItem)
                 }
             })
             dialog.myDig()
