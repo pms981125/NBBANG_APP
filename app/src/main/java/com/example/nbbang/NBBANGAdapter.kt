@@ -1,8 +1,10 @@
 package com.example.nbbang
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nbbang.databinding.NbbangLayoutBinding
 
@@ -17,12 +19,16 @@ class NBBANGAdapter(private val context: Context):RecyclerView.Adapter<NBBANGAda
             }
 
             binding.buttonInfo.setOnClickListener {
-                //권한 확인
+                //권한 확인 추가
                 val dialog = NBBANGInfoDialog(context)
+                dialog.myDig(items[pos].explanation)
             }
 
             binding.buttonManage.setOnClickListener {
-                //추가
+                //권한 확인 추가
+                val intent = Intent(context, NBBANGManagementActivity::class.java)
+                context.startActivity(intent)//결과리턴으로 변경
+                //이후 구현
             }
         }
     }
@@ -33,11 +39,17 @@ class NBBANGAdapter(private val context: Context):RecyclerView.Adapter<NBBANGAda
         return ViewHolder(binding, context)
     }
 
+    private val itemsListData = MutableLiveData<MutableList<NBBANGItem>>()
     val items: MutableList<NBBANGItem> = mutableListOf()
 
     fun addItem(item: NBBANGItem) {
         items.add(item)
         notifyItemInserted(items.size - 1)
+    }
+
+    fun deleteItem(pos : Int){
+        items.removeAt(pos)
+        itemsListData.value = items
     }
 
     override fun getItemCount(): Int {

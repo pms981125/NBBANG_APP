@@ -49,6 +49,9 @@
         <activity
             android:name=".RoomActivity"
             android:exported="true"/>
+        <activity
+            android:name=".NBBANGManagementActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
