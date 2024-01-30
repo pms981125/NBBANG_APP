@@ -6,6 +6,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 
 class NBBANGDialog(context: Context) {
     private val dialog = Dialog(context)
@@ -39,6 +40,11 @@ class NBBANGDialog(context: Context) {
 
     interface ButtonClickListener {
         fun onClicked(period: String, money: String, explanation: String)
+    }
+
+    fun changeText(text: String) {
+        val button = dialog.findViewById<Button>(R.id.buttonCreate)
+        button.text = text
     }
 
     private lateinit var onClickListener: ButtonClickListener

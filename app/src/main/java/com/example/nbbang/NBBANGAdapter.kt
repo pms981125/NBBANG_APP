@@ -27,8 +27,9 @@ class NBBANGAdapter(private val context: Context):RecyclerView.Adapter<NBBANGAda
             binding.buttonManage.setOnClickListener {
                 //권한 확인 추가
                 val intent = Intent(context, NBBANGManagementActivity::class.java)
-                context.startActivity(intent)//결과리턴으로 변경
-                //이후 구현
+                intent.putExtra("roomId", 1)
+                intent.putExtra("nbbangId", pos)
+                context.startActivity(intent)
             }
         }
     }

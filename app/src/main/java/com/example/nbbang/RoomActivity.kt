@@ -82,7 +82,7 @@ class RoomActivity:AppCompatActivity() {
             val dialog = NBBANGDialog(this)
             dialog.setOnClickListener(object : NBBANGDialog.ButtonClickListener{
                 override fun onClicked(period: String, money: String, explanation: String) {
-                    println("%%%" + period + "%%%" + money + "%%%" + explanation + "%%%")// 구현 후 삭제
+                    println("%%%$period%%%$money%%%$explanation%%%")// 구현 후 삭제
                     // 코드 함수 수행
                     val newItem = NBBANGItem(period, money, explanation)
 
