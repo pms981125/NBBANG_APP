@@ -30,7 +30,7 @@ class ParticipatingPeopleDialogAdapter(private val context: Context): RecyclerVi
     fun deleteItem(position: Int) {
         items.removeAt(position)
         //itemsListData.value = items
-        notifyItemRemoved(position)
+        notifyItemRemoved(position) //변경사항 적용
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
