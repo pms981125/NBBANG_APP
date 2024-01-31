@@ -6,28 +6,41 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewExplanation"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
+        android:text="참여 인원"
         android:textSize="20sp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewParticipationPeopleDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
     <Button
-        android:id="@+id/btnOK"
+        android:id="@+id/buttonOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="확인"
+        android:textSize="18sp"
         android:textColor="@color/white"
-        android:background="@drawable/button_rounded_corner_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewExplanation" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewParticipationPeopleDialog"
+        android:background="@drawable/button_rounded_corner_rectangle"/>
 
     <TextView
         android:id="@+id/textViewBlank"
@@ -37,5 +50,5 @@
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnOK" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonOK" />
 </androidx.constraintlayout.widget.ConstraintLayout>

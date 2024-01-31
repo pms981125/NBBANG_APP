@@ -50,7 +50,8 @@ class NBBANGAdapter(private val context: Context):RecyclerView.Adapter<NBBANGAda
 
     fun deleteItem(pos : Int){
         items.removeAt(pos)
-        itemsListData.value = items
+        //itemsListData.value = items
+        notifyItemRemoved(pos)
     }
 
     override fun getItemCount(): Int {

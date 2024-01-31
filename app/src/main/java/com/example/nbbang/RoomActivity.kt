@@ -1,7 +1,6 @@
 package com.example.nbbang
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +16,7 @@ class RoomActivity:AppCompatActivity() {
         setContentView(binding.root)
 
         val intent = intent
-        val intentID = intent.getStringExtra("id")
+        var intentID = intent.getStringExtra("id") //val로 변경
         val intentTitle = intent.getStringExtra("title")
         val intentContents = intent.getStringExtra("contents")
         val intentPublic = intent.getBooleanExtra("public", false)
@@ -68,7 +67,8 @@ class RoomActivity:AppCompatActivity() {
         }
 
         binding.buttonParticipationPeople.setOnClickListener {
-            //파티 인원 확인 구현
+            val dialog = ParticipatingPeopleDialog(this)
+            dialog.myDig()
         }
 
         val adapter = NBBANGAdapter(this)
@@ -93,7 +93,11 @@ class RoomActivity:AppCompatActivity() {
         }
 
         binding.buttonBulletinBoard.setOnClickListener {
-            //게시판 이동
+            val intent = Intent(this, BulletinBoardActivity::class.java)
+            //임시
+            intentID = "1"
+            intent.putExtra("roomID", intentID)
+            startActivity(intent)
         }
     }
 

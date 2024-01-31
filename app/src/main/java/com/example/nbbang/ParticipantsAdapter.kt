@@ -41,7 +41,8 @@ class ParticipantsAdapter(private val context: Context, private val isParticipat
 
     fun deleteItem(position: Int) {
         items.removeAt(position)
-        itemListData.value = items
+        //itemsListData.value = items
+        notifyItemRemoved(position)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
