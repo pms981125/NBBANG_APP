@@ -33,11 +33,13 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.editTextID.text.toString()
             val password = binding.editTextPassword.text.toString()
 
-            CoroutineScope(Dispatchers.IO).launch {
+            loginUser(email, password)
+
+            /*CoroutineScope(Dispatchers.IO).launch {
                 //try {
                 val response = apiService.login("user@example.com", "password")
                 println(response + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-                /*
+
                     if (response.isSuccessful) {
                         // 로그인 성공
                         val responseData = response.body()
@@ -46,14 +48,14 @@ class LoginActivity : AppCompatActivity() {
                         //intent.putExtra("user", responseData)
                         startActivity(intent)
                     } else {
-                        // 로그인 실패
+                        // 로그인 실패fhrm
                         // 에러 처리...
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-                */
-            }
+
+            }*/
 
 
         }

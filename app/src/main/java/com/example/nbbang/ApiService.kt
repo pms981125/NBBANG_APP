@@ -7,16 +7,16 @@ import retrofit2.http.*
 // ApiService.kt
 interface ApiService {
 
-    /*@POST("/login")
-    fun login(@Body loginRequest: LoginRequest): Call<LoginResponse>*/
+    @POST("/login")
+    fun login(@Body loginRequest: LoginRequest): Call<LoginResponse>
 
-    @FormUrlEncoded
+    /*@FormUrlEncoded
     @POST("/perform_login")
     suspend fun login(
         @Field("username") username: String,
         @Field("password") password: String
     ):String
-    //: Response<LoginResponse>
+    //: Response<LoginResponse>*/
 
     @GET("/perform_logout")
     suspend fun logout(): Response<Void>
@@ -26,9 +26,12 @@ interface ApiService {
     /*@GET("/users")
     fun getUsers(): Call<List<User>>*/
 
-    @POST("/signup")
+    /*@POST("/signup")
     fun signup(@Body signupRequest: SignupRequest): Call<SignupResponse>
-    // 다른 API 엔드포인트들도 필요에 따라 추가하세요.
+    // 다른 API 엔드포인트들도 필요에 따라 추가하세요.*/
+
+    @POST("/user")
+    fun signup(@Body signupRequest: SignupRequest): Call<SignupResponse>
 
     // LoginRequest.kt
     data class LoginRequest(val username: String, val password: String)
