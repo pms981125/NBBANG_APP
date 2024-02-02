@@ -66,8 +66,16 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+
     private fun loginUser(username: String, password: String) {
-        val loginRequest = ApiService.LoginRequest(username, password)
+        val loginRequest = ApiService.LoginRequest(username, password).toString().replace("(","{").replace(")", "}")//?
+        /*var json = loginRequest.toString().replace("(","{")
+        json = json.replace(")", "}");
+        json = json.replace("이름tDto", "");
+        json = json.replace("parentId=", "\"parentId\":");
+        json = json.replace("childId=", "\"childId\":");
+        json = json.replace("devId=", "\"devId\":");*/
+
 
         apiService.getData().enqueue(object : Callback<ApiService.LoginResponse> {
             override fun onResponse(call: Call<ApiService.LoginResponse>, response: Response<ApiService.LoginResponse>) {
