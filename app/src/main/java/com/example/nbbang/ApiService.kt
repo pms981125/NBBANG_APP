@@ -34,14 +34,16 @@ interface ApiService {
     fun signup(@Body signupRequest: SignupRequest): Call<SignupResponse>
 
     // LoginRequest.kt
-    data class LoginRequest(val username: String, val password: String)
+    //data class LoginRequest(val username: String, val password: String)
+    data class LoginRequest(val email: String, val password: String)
 
     // SignupRequest.kt
     data class SignupRequest(val email: String, val password: String, val username: String)
 
     data class User(val id: Int, val email: String, val password: String, val username: String)
 
-    data class LoginResponse(val token: String, val user: User)
+    //data class LoginResponse(val token: String, val user: User)
+    data class LoginResponse(val id: Long, val email: String, val password: String, val nickname: String)
 
     data class SignupUser(val id: Int, val email: String, val password: String, val username: String)
 

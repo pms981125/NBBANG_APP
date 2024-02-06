@@ -9,10 +9,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.nbbang.ApiClient.apiService
 import com.example.nbbang.databinding.ActivityLoginBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -67,8 +63,21 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    private fun loginUser(username: String, password: String) {
-        val loginRequest = ApiService.LoginRequest(username, password).toString().replace("(","{").replace(")", "}")//?
+    private fun loginUser(email: String, password: String) {
+
+        /*val newRequest = ApiService.LoginRequest(email, password).toString()
+        newRequest.replace("(","{")
+        newRequest.replace(")", "}")*/
+
+        var json: String = ApiService.LoginRequest(email, password).toString().replace("(", "{")
+        json = json.replace(")", "}")
+        //json = json.replace("이름tDto", "")
+        json = json.replace("email=", "\"email\":")
+        json = json.replace("password=", "\"password\":")
+        //json = json.replace("devId=", "\"devId\":")
+
+        val loginRequest = json
+        //ApiService.LoginRequest(username, password).toString().replace("(","{").replace(")", "}")//?
         /*var json = loginRequest.toString().replace("(","{")
         json = json.replace(")", "}");
         json = json.replace("이름tDto", "");
@@ -80,9 +89,12 @@ class LoginActivity : AppCompatActivity() {
         apiService.getData().enqueue(object : Callback<ApiService.LoginResponse> {
             override fun onResponse(call: Call<ApiService.LoginResponse>, response: Response<ApiService.LoginResponse>) {
                 if (response.isSuccessful) {
-                    val token = response.body()?.token
+                    /*val token = response.body()?.token
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    intent.putExtra("user", token)
+                    intent.putExtra("user", token)*/
+                    val id = response.body()?.id
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    intent.putExtra("user", id)
                     startActivity(intent)
                 }
             }
